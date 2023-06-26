@@ -14,18 +14,23 @@ export default {
     Main
   },
   mounted(){
-    axios.get(store.api + 'movie?' + store.apiKey + '&query=' + store.searchedFilm).then((response) => {
+    this.searchSubject()
+  },
+  methods:{
+    searchSubject(){
+      axios.get(store.api + 'movie?' + store.apiKey + '&query=' + store.searchedSubject).then((response) => {
       store.filmsList = response.data.results;
     }),
-    axios.get(store.api + 'tv?' + store.apiKey + '&query=' + store.searchedSeries).then((response) => {
+    axios.get(store.api + 'tv?' + store.apiKey + '&query=' + store.searchedSubject).then((response) => {
       store.seriesList = response.data.results;
     })
+    }
   }
 }
 </script>
 <template lang="">
   <div>
-    <Header />
+    <Header @search="searchSubject" />
     <Main />
   </div>
 </template>
