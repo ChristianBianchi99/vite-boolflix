@@ -1,7 +1,13 @@
 <script>
 import CardFilms from './AppCardFilms.vue';
 import CardSeries from './AppCardSeries.vue';
+import {store} from '../data/store.js'
 export default {
+    data(){
+        return{
+            store,
+        }
+    },
     components:{
         CardFilms,
         CardSeries,
@@ -10,11 +16,34 @@ export default {
 </script>
 <template lang="">
     <div>
-        Main
-        <CardFilms />
-        <CardSeries />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="content">
+                        <h2>
+                            Films
+                        </h2>
+                        <div class="films">
+                            <CardFilms v-for="(film, index) in store.filmsList" :key="index" :film="film"/>
+                        </div>
+                        <h2>
+                            Series
+                        </h2>
+                        <div class="series">
+                            <CardSeries />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <style lang="scss" scoped>
-    
+    .content{
+        padding: 20px 10px;
+        .films, .series{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
 </style>
