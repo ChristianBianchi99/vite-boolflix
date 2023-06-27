@@ -6,4 +6,5 @@ export const store = reactive({
     searchedSubject: '',
     filmsList: '',
     seriesList: '',
+    imagePath: 'https://image.tmdb.org/t/p/w342',
 })

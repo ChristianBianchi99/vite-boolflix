@@ -24,13 +24,13 @@ export default {
                             Films
                         </h2>
                         <div class="films">
-                            <CardFilms v-for="(film, index) in store.filmsList" :key="index" :film="film"/>
+                            <CardFilms v-for="(film, index) in store.filmsList" :key="index" :film="film" :imagePath="store.imagePath"/>
                         </div>
                         <h2>
                             Series
                         </h2>
                         <div class="series">
-                            <AppCardSeries v-for="(series, index) in store.seriesList" :key="index" :series="series" />
+                            <AppCardSeries v-for="(series, index) in store.seriesList" :key="index" :series="series" :imagePath="store.imagePath"/>
                         </div>
                     </div>
                 </div>
