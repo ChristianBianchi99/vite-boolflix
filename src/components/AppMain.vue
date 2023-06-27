@@ -1,6 +1,6 @@
 <script>
 import CardFilms from './AppCardFilms.vue';
-import CardSeries from './AppCardSeries.vue';
+import AppCardSeries from './AppCardSeries.vue';
 import {store} from '../data/store.js'
 export default {
     data(){
@@ -10,7 +10,7 @@ export default {
     },
     components:{
         CardFilms,
-        CardSeries,
+        AppCardSeries,
     }
 }
 </script>
@@ -30,7 +30,7 @@ export default {
                             Series
                         </h2>
                         <div class="series">
-                            <CardSeries />
+                            <AppCardSeries v-for="(series, index) in store.seriesList" :key="index" :series="series" />
                         </div>
                     </div>
                 </div>
