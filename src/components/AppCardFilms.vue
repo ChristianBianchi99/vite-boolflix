@@ -29,19 +29,36 @@ export default {
 </script>
 <template lang="">
     <div>
-        <ul>
-            <li><img :src="getImage(film.poster_path, imagePath)" :alt="film.title"></li>
-            <li><strong>Title:</strong> {{film.title}}</li>
-            <li><strong>Original title:</strong> {{film.original_title}}</li>
-            <li><strong>Original language:</strong> <country-flag :country="getFlag(film.original_language)" size='normal'/></li>
-            <li><strong>Voto:</strong> <i class="fa-solid fa-star" v-for="n in getVote(film.vote_average)"></i><i class="fa-regular fa-star" v-for="n in (5 - getVote(film.vote_average))"></i></li>
-        </ul>
+        <div class="poster">
+            <img :src="getImage(film.poster_path, imagePath)" :alt="film.title">
+            <div class='details'>                
+                <ul>
+                    <li>
+                        <strong>Title:</strong><br> 
+                        {{film.title}}
+                    </li>
+                    <li>
+                        <strong>Original title:</strong><br> 
+                        {{film.original_title}}
+                    </li>
+                    <li>
+                        <strong>Original language:</strong><br> 
+                        <country-flag :country="getFlag(film.original_language)" size='normal'/>
+                    </li>
+                    <li>
+                        <strong>Voto:</strong><br> 
+                        <i class="fa-solid fa-star" v-for="n in getVote(film.vote_average)"></i>
+                        <i class="fa-regular fa-star" v-for="n in (5 - getVote(film.vote_average))"></i>
+                    </li>
+                    <li>
+                        <strong>Overview</strong><br>
+                        {{film.overview}}
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 <style lang="scss" scoped>
-    ul{
-        list-style-type: none;
-        margin-right: 10px;
-        margin-bottom: 20px;
-    }
+@use '../styles/partials/cardsStyles' as*;
 </style>

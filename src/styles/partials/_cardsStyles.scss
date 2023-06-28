@@ -1,0 +1,36 @@
+.poster{
+    position: relative;
+    width: calc((100vw - 31.75vw) / 5);
+    height: 100%;
+    &:hover .details{
+        display: block;
+    }
+    .details{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.9);
+        height: 100%;
+        width: 100%;
+        color: rgb(231, 231, 231);
+        overflow-y: scroll;
+        ul{
+            list-style-type: none;
+            margin-right: 10px;
+            margin-bottom: 20px;
+            li{
+                margin-bottom: 10px;
+                font-size: 15px;
+                strong{
+                    font-size: 12px;
+                }
+                i{
+                    margin-right: 5px;
+                    color: goldenrod;
+                }
+            }
+        }
+    }
+}

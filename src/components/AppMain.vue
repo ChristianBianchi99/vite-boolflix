@@ -20,17 +20,17 @@ export default {
             <div class="row">
                 <div class="col">
                     <div class="content">
-                        <h2>
+                        <h3>
                             Films
-                        </h2>
+                        </h3>
                         <div class="films">
-                            <CardFilms v-for="(film, index) in store.filmsList" :key="index" :film="film" :imagePath="store.imagePath"/>
+                            <CardFilms class='card' v-for="(film, index) in store.filmsList" :key="index" :film="film" :imagePath="store.imagePath"/>
                         </div>
-                        <h2>
+                        <h3>
                             Series
-                        </h2>
+                        </h3>
                         <div class="series">
-                            <AppCardSeries v-for="(series, index) in store.seriesList" :key="index" :series="series" :imagePath="store.imagePath"/>
+                            <AppCardSeries class='card' v-for="(series, index) in store.seriesList" :key="index" :series="series" :imagePath="store.imagePath"/>
                         </div>
                     </div>
                 </div>
@@ -41,9 +41,16 @@ export default {
 <style lang="scss" scoped>
     .content{
         padding: 20px 10px;
+        h3{
+            margin-bottom: 10px;
+            color: white;
+            text-transform: uppercase;
+        }
         .films, .series{
             display: flex;
-            flex-wrap: wrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            margin-bottom: 20px;
         }
     }
 </style>

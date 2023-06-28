@@ -26,19 +26,36 @@ export default {
 </script>
 <template lang="">
     <div>
-        <ul>
-            <li><img :src="getImage(series.poster_path, imagePath)" :alt="series.name"></li>
-            <li><strong>Title:</strong> {{series.name}}</li>
-            <li><strong>Original title:</strong> {{series.original_name}}</li>
-            <li><strong>Original language:</strong> <country-flag :country="getCountry(series.origin_country[0])" size='normal'/></li>
-            <li><strong>Voto:</strong> <i class="fa-solid fa-star" v-for="n in getVote(series.vote_average)"></i><i class="fa-regular fa-star" v-for="n in (5 - getVote(series.vote_average))"></i></li>
-        </ul>
+        <div class="poster">
+            <img :src="getImage(series.poster_path, imagePath)" :alt="series.name">
+            <div class='details'>
+                <ul>
+                    <li>
+                        <strong>Title:</strong><br> 
+                        {{series.name}}
+                    </li>
+                    <li>
+                        <strong>Original title:</strong><br> 
+                        {{series.original_name}}
+                    </li>
+                    <li>
+                        <strong>Original language:</strong><br> 
+                        <country-flag :country="getCountry(series.origin_country[0])" size='normal'/>
+                    </li>
+                    <li>
+                        <strong>Voto:</strong><br>
+                        <i class="fa-solid fa-star" v-for="n in getVote(series.vote_average)"></i>
+                        <i class="fa-regular fa-star" v-for="n in (5 - getVote(series.vote_average))"></i>
+                    </li>
+                    <li>
+                        <strong>Overview</strong><br>
+                        {{series.overview}}
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 <style lang="scss" scoped>
-    ul{
-        list-style-type: none;
-        margin-right: 10px;
-        margin-bottom: 20px;
-    }
+@use '../styles/partials/cardsStyles' as*;
 </style>
