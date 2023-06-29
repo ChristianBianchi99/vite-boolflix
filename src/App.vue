@@ -18,6 +18,8 @@ export default {
   },
   methods:{
     searchSubject(){
+      store.filmsList= '';
+      store.seriesList= '';
       axios.get(store.api + 'movie?' + store.apiKey + '&query=' + store.searchedSubject).then((response) => {
       store.filmsList = response.data.results;
     }),

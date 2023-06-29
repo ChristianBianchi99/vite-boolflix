@@ -20,6 +20,58 @@ export default {
         getVote(vote){
             let result= Math.ceil(vote / 2)
             return result
+        },
+        traGenres(genres){
+            switch(genres){
+                case 10759 :
+                    return "Action & Adventure";
+                    break;
+                case 16 :
+                    return "Animation";
+                    break;
+                case 35 :
+                    return "Comedy";
+                    break;
+                case 80 :
+                    return "Crime";
+                    break;
+                case 99 :
+                    return "Documentary";
+                    break;
+                case 18 :
+                    return "Drama";
+                    break;
+                case 10751 :
+                    return "Family";
+                    break;
+                case 10762 :
+                    return "Kids";
+                    break;
+                case 9648 :
+                    return "Mystery";
+                    break;
+                case 10763 :
+                    return "News";
+                    break;
+                case 10764 :
+                    return "Reality";
+                    break;
+                case 10765 :
+                    return "Sci-Fi & Fantasy";
+                    break;
+                case 10766 :
+                    return "Soap";
+                    break;
+                case 10767 :
+                    return "Talk";
+                    break;
+                case 10768 :
+                    return "War & Politics";
+                    break;
+                case 37 :
+                    return "Western";
+                    break;
+            }
         }
     }
 }
@@ -41,6 +93,10 @@ export default {
                     <li>
                         <strong>Original language:</strong><br> 
                         <country-flag :country="getCountry(series.origin_country[0])" size='normal'/>
+                    </li>
+                    <li>
+                        <strong>Genres:</strong><br>
+                        <span v-for='(genres, index) in series.genre_ids' :key='index'>{{traGenres(genres)}}, </span>
                     </li>
                     <li>
                         <strong>Voto:</strong><br>
